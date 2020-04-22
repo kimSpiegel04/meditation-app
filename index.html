@@ -17,21 +17,23 @@
             background-size: cover;
         }
     </style>
-<!--<i class="material-icons">play_arrow</i><i class="material-icons">pause</i>-->
+<!--<i class="material-icons">pause</i>-->
 
-    <div id='app'></div>
+    <div id='wrapper'>
+        <div id='app'></div>
+    </div>
 
     <div class='buttons'>
-        <button id='music-1'>
+        <button id='music-1' class='button' onclick="playMusic(this)">
             <i class="material-icons">music_note</i>
         </button>
-        <button id='music-2'>
+        <button id='music-2' class='button' onclick="playMusic(this)">
             <i class="material-icons">music_note</i>
         </button>
-        <button id='music-3'>
+        <button id='music-3' class='button' onclick="playMusic(this)">
             <i class="material-icons">music_note</i>
         </button>
-        <button id='music-off'>
+        <button id='music-off' class='button active' onclick="playMusic(this)">
             <i class="material-icons">music_off</i>
         </button>
     </div>

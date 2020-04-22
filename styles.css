@@ -15,7 +15,7 @@
 /* the svg path that displays the timer's progress */
 .base-timer__path-elapsed {
     stroke-width: 7px;
-    stroke: grey;
+    stroke: #222831c9;
 }
 
 /* show time value in timer  */
@@ -63,5 +63,37 @@
 }
 
 .base-timer__path-remaining.green {
-    color: white;
+    color: #ececec;
 }
+
+#wrapper {
+    color: white;
+    text-shadow: 2px 2px grey;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.button {
+    margin: 1%;
+    cursor: pointer;
+    color: #ececec;
+    background-color: #30475e;
+    border: none;
+}
+
+.active {
+    color: #30475e;
+    background-color: #ececec;
+    margin: 1%;
+    cursor: pointer;
+    border: none;
+}
+

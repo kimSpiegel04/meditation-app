@@ -8,13 +8,20 @@ const COLOR_CODES = {
 };
 
 //start with an initial value of 20 seconds
-const TIME_LIMIT = 600;
+const TIME_LIMIT = 5;
 let timePassed = 0;
 //counting down
 let timerInterval = null;
 let timeLeft = TIME_LIMIT;
 let remainingPathColor = COLOR_CODES.info.color;
+//sound
+const bell = new Audio('music/bell.mp3');
 
+//start pause
+const el = document.getElementById('app');
+el.onclick = function() {
+    startTimer();
+}
 
 //template, svg for timer ring
 document.getElementById('app').innerHTML = `
@@ -42,9 +49,8 @@ document.getElementById('app').innerHTML = `
     </div>
 `;
 
-startTimer();
-
 function timesUp() {
+    bell.play();
     clearInterval(timerInterval);
 }
 
@@ -77,7 +83,7 @@ function setCircleDasharray(){
         .setAttribute('stroke-dasharray', circleDasharray);
 }
 
-function startTimer() {
+function startTimer(){
     timerInterval = setInterval(() => {
         //amount of time passed incrememnts by one
         timePassed = timePassed += 1;
@@ -93,9 +99,33 @@ function startTimer() {
         }
 
     }, 1000);
-}
+};
+
 
 //*random background
 let ran = Math.floor(Math.random() * 10);
 document.body.style.backgroundImage = `url('images/background-${ran}.jpg')`;
-console.log(ran);
+
+//*music
+function playMusic(source){
+    console.log(source.id);
+    var elems = document.querySelectorAll('.button');
+    [].forEach.call(elems, function(el){
+        el.classList.remove('active');
+    });
+    document.getElementById(source.id).classList.add('active');
+
+    const music_1 = new Audio('music/purple-cat.mp3');
+    const music_2 = new Audio('music/dead-tree.mp3');
+    const music_3 = new Audio('music/green-tea.mp3');
+
+    if (source.id == 'music-1'){
+        music_1.play();
+    } else if (source.id == 'music-2'){
+        music_2.play();
+    } else if (source.id == 'music-3'){
+        music_3.play();
+    } else {
+        console.log('stop music');
+    }
+}
