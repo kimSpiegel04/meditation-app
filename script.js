@@ -107,25 +107,33 @@ let ran = Math.floor(Math.random() * 10);
 document.body.style.backgroundImage = `url('images/background-${ran}.jpg')`;
 
 //*music
+const music_1 = new Audio('music/purple-cat.mp3');
+const music_2 = new Audio('music/dead-tree.mp3');
+const music_3 = new Audio('music/green-tea.mp3');
+
 function playMusic(source){
-    console.log(source.id);
     var elems = document.querySelectorAll('.button');
     [].forEach.call(elems, function(el){
         el.classList.remove('active');
     });
     document.getElementById(source.id).classList.add('active');
 
-    const music_1 = new Audio('music/purple-cat.mp3');
-    const music_2 = new Audio('music/dead-tree.mp3');
-    const music_3 = new Audio('music/green-tea.mp3');
-
     if (source.id == 'music-1'){
+        music_2.pause();
+        music_3.pause();
         music_1.play();
     } else if (source.id == 'music-2'){
+        music_1.pause();
+        music_3.pause();
         music_2.play();
     } else if (source.id == 'music-3'){
+        music_1.pause();
+        music_2.pause();
         music_3.play();
-    } else {
+    } else if (source.id =='music-off') {
+        music_1.pause();
+        music_2.pause();
+        music_3.pause();
         console.log('stop music');
     }
 }
