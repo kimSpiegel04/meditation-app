@@ -8,7 +8,7 @@ const COLOR_CODES = {
 };
 
 //start with an initial value of 20 seconds
-const TIME_LIMIT = 5;
+const TIME_LIMIT = 600;
 let timePassed = 0;
 //counting down
 let timerInterval = null;
